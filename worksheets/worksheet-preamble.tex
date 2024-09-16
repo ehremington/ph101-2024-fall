@@ -12,7 +12,7 @@
 \usepackage{hyperref}
 \usepackage{amsmath}
 \usepackage{booktabs}
-%\usepackage{needspace}
+\usepackage{needspace}
 
 % use xelatex to use different font
 %\usepackage{fontspec}
@@ -32,10 +32,21 @@
 %\setmathfont[range=\mathit]{Fira Sans Light Italic}
 
 
-\renewcommand{\bigskip}{\vspace{1in}}
+%\renewcommand{\bigskip}{\vspace{1in}}
 %\renewcommand{\bigskip}{\needspace{1in}}
-\newcommand{\hugeskip}{\vspace{2in}}
-\newcommand{\giantskip}{\vspace{3in}}
+%\newcommand{\hugeskip}{\vspace{2in}}
+%\newcommand{\hugeskip}{\needspace{3in}}
+%\newcommand{\giantskip}{\vspace{3in}}
+%\newcommand{\giantskip}{\needspace{4in}}
+
+%\renewcommand{\bigskip}{\needspace{.5in}\vspace{.5in}}
+%\newcommand{\hugeskip}{\needspace{1in}\vspace{1in}}
+%\newcommand{\giantskip}{\needspace{1.5in}\vspace{1.5in}}
+
+\renewcommand{\bigskip}{\needspace{1in}\vspace{1in}}
+\newcommand{\hugeskip}{\needspace{2in}\vspace{2in}}
+\newcommand{\giantskip}{\needspace{3in}\vspace{3in}}
+
 \newcommand{\blank}{ \rule{1in}{0.1mm} }
 \sisetup{retain-explicit-plus}
 
