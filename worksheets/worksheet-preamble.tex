@@ -16,6 +16,8 @@
 \usepackage{booktabs}
 \usepackage{needspace}
 
+\usepackage{enumitem}
+
 % use xelatex to use different font
 %\usepackage{fontspec}
 \usepackage{mathspec}
@@ -44,6 +46,50 @@
 %\renewcommand{\bigskip}{\needspace{.5in}\vspace{.5in}}
 %\newcommand{\hugeskip}{\needspace{1in}\vspace{1in}}
 %\newcommand{\giantskip}{\needspace{1.5in}\vspace{1.5in}}
+
+%%%%%%%%%%%%%%%%%%%%%%%% testing %%%%%%%%%%
+
+%% globally redefine \enumerate to include \needspace before each \item
+%\setlist[enumerate,1]{before=\needspace{5in}, itemsep=2in, topsep=0in}
+%
+%%redefine enumerate to prevent splitting across pages
+%\setlist[enumerate]{
+%	before=\needspace{3in}, % check for enough space
+%	itemsep=1in, 
+%	topsep=0in
+%}
+%
+%% automatically open and close minipage with each \item to prevent splitting
+%\let\olditem\item
+%\renewcommand{\item}{\needspace{3in}\olditem\begin{minipage}[t]{\linewidth}\ignorespaces}
+%	\newcommand{\closeitem}{\end{minipage}\par\medskip}
+%
+%% automatically close minipage after every item
+%\usepackage{etoolbox}
+%\preto\item{\closeitem}
+
+%% redefine \item with a more aggressive \needspace check
+%\let\olditem\item
+%\renewcommand{\item}{
+%	\needspace{10\baselineskip} % check for 8 lines of space before placing an item
+%	\olditem
+%}
+
+%% redefine only the \item within enumerate
+%\setlist[enumerate,1]{before=\renewcommand{\item}{%
+%		\needspace{5in} % reserve enough space for problem text + student work area
+%		\olditem
+%		\vspace{2in} % add space for students to work
+%}}
+
+% redefine \item for enumerate to prevent splitting and add space
+\setlist[enumerate,1]{before=\renewcommand{\item}{%
+		\needspace{6in} % reserve enough space for both item text and answer space
+		\begin{minipage}[t]{\linewidth} % encapsulate item content to prevent page breaks
+			\olditem}, after=\end{minipage}\vspace{2in}} % close minipage and add answer space
+
+%%%%%%%%%%%%%%%
+
 
 \renewcommand{\bigskip}{\needspace{1in}\vspace{1in}}
 \newcommand{\hugeskip}{\needspace{2in}\vspace{2in}}
